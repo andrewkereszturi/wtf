@@ -79,6 +79,8 @@ import (
 	"github.com/wtfutil/wtf/modules/twitter"
 	"github.com/wtfutil/wtf/modules/twitterstats"
 	"github.com/wtfutil/wtf/modules/unknown"
+	"github.com/wtfutil/wtf/modules/timeuntil"
+	"github.com/wtfutil/wtf/modules/timesince"
 	"github.com/wtfutil/wtf/modules/updown"
 	"github.com/wtfutil/wtf/modules/uptimerobot"
 	"github.com/wtfutil/wtf/modules/urlcheck"
@@ -315,6 +317,12 @@ func MakeWidget(
 	case "textfile":
 		settings := textfile.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = textfile.NewWidget(tviewApp, redrawChan, pages, settings)
+	case "timesince":
+		settings := timesince.NewSettingsFromYAML(moduleName, moduleConfig, config)
+		widget = timesince.NewWidget(tviewApp, redrawChan, pages, settings)
+	case "timeuntil":
+		settings := timeuntil.NewSettingsFromYAML(moduleName, moduleConfig, config)
+		widget = timeuntil.NewWidget(tviewApp, redrawChan, pages, settings)
 	case "todo":
 		settings := todo.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = todo.NewWidget(tviewApp, redrawChan, pages, settings)
